@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+
+</head>
+<body >
+    <div id="e56bc19af94c44cc8cf359fb5d31d5a3" class="chart-container" style="width:1800px; height:1000px; "></div>
+    <script>
+        var chart_e56bc19af94c44cc8cf359fb5d31d5a3 = echarts.init(
+            document.getElementById('e56bc19af94c44cc8cf359fb5d31d5a3'), 'light', {renderer: 'canvas'});
+        var option_e56bc19af94c44cc8cf359fb5d31d5a3 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "tree",
+            "data": [
+                {
+                    "name": "RAW (19,12.0 MB)",
+                    "children": [
+                        {
+                            "name": "folder1 (18,2.0 MB)",
+                            "children": [
+                                {
+                                    "name": "folder1_1 (2,0 bytes)"
+                                },
+                                {
+                                    "name": "folder1_2 (4,0 bytes)",
+                                    "children": [
+                                        {
+                                            "name": "folder1_2_1 (2,0 bytes)"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "folder1_3 (12,2.0 MB)",
+                                    "children": [
+                                        {
+                                            "name": "folder1_3_1 (2,0 bytes)"
+                                        },
+                                        {
+                                            "name": "folder1_3_2 (8,2.0 MB)"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "collapsed": "false"
+                        },
+                        {
+                            "name": "folder2 (0,0 bytes)"
+                        },
+                        {
+                            "name": "folder3 (1,10.0 MB)",
+                            "collapsed": "false"
+                        }
+                    ]
+                }
+            ],
+            "symbol": "emptyCircle",
+            "symbolSize": 14,
+            "edgeShape": "curve",
+            "edgeForkPosition": "50%",
+            "roam": false,
+            "expandAndCollapse": true,
+            "layout": "orthogonal",
+            "orient": "LR",
+            "label": {
+                "show": true,
+                "margin": 8
+            },
+            "leaves": {
+                "label": {
+                    "show": true,
+                    "margin": 8,
+                    "fontSize": 14
+                }
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "directory tree",
+            "target": "blank",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ]
+};
+        chart_e56bc19af94c44cc8cf359fb5d31d5a3.setOption(option_e56bc19af94c44cc8cf359fb5d31d5a3);
+    </script>
+</body>
+</html>
