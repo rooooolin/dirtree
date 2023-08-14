@@ -1,7 +1,7 @@
 
 ### Directory Tree
 
-A tool which can generate a tree view of the directories
+A tool that can generate a tree view, including the number and size of files in subdirectories, for a given set of directories.
 
 ![img](./asserts/img.png)
 
