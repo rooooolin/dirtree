@@ -33,10 +33,8 @@ class DirTree:
             subdir_tree = self.get_tree_datas(subdir_name,subdir_stats, depth + 1, max_depth)
             if subdir_tree:
                 tree['children'].append(subdir_tree)
-
         if not tree['children']:
             tree.pop('children')
-        
         return tree
 
     def build_tree(self,stats):
@@ -55,47 +53,37 @@ class DirTree:
                     
                     )
         tree.render(self.args.output)
-       
-        
         #make_snapshot(driver, 'render.html', 'chart.png')
+    
     def convert_size(self,bytes):
         units = ['bytes', 'KB', 'MB', 'GB', 'TB']
-
         unit_index = 0
         while bytes >= 1024 and unit_index < len(units) - 1:
             bytes /= 1024
             unit_index += 1
-
         bytes = round(bytes, 2)
-
         return f"{bytes} {units[unit_index]}"
 
     def directory_stats(self,directory,parent=None):
         stats = {'files': 0, 'size': 0, 'subdirectories': {}, 'parent': parent}
-
         for root, subdirs, files in os.walk(directory):
             if root == directory:
                 subdirs[:] = [d for d in subdirs if d != '.']
-            
             subdir_stats = stats
             for subdir in os.path.relpath(root, directory).split(os.path.sep):
                 subdir_stats = subdir_stats['subdirectories'].setdefault(subdir, {'files': 0, 'size': 0, 'subdirectories': {}, 'parent': subdir_stats})
-            
             for file in files:
                 file_path = os.path.join(root, file)
                 file_size = os.path.getsize(file_path)
                 subdir_stats['files'] += 1
                 subdir_stats['size'] += file_size
-
                 parent_stats = subdir_stats['parent']
                 while parent_stats is not None:
                     parent_stats['files'] += 1
                     parent_stats['size'] += file_size
                     parent_stats = parent_stats.get('parent')
-
         if '.' in stats['subdirectories']:
             del stats['subdirectories']['.']
-
         return stats
     
     def merge_stats(self,dir1, dir2):
@@ -103,25 +91,18 @@ class DirTree:
         merged['subdirectories'] = {}
         merged['files'] = dir1['files'] + dir2['files']
         merged['size'] = dir1['size'] + dir2['size']
-
         subdirs1 = dir1['subdirectories']
         subdirs2 = dir2['subdirectories']
-
         for subdir_name, subdir1 in subdirs1.items():
             merged['subdirectories'][subdir_name] = subdir1
             if subdir_name in subdirs2:
                 merged['subdirectories'][subdir_name] = self.merge_stats(subdir1, subdirs2[subdir_name])
-
         for subdir_name, subdir2 in subdirs2.items():
-
-            
             if subdir_name not in merged['subdirectories']:
                 merged['subdirectories'][subdir_name] = subdir2
-
         return merged
 
     def __call__(self, *args: Any, **kwds: Any) -> Any:
-
         all_stats={'files': 0, 'size': 0, 'subdirectories': {}, 'parent': None}
         for p in self.args.rawpaths:
             stats=self.directory_stats(p)
