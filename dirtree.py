@@ -52,6 +52,8 @@ class DirTree:
                     title_opts=opts.TitleOpts(title="directory tree"),
                     
                     )
+        if self.args.output.endswith(".html"):
+            self.args.output+="1.html"
         tree.render(self.args.output)
         #make_snapshot(driver, 'render.html', 'chart.png')
     
